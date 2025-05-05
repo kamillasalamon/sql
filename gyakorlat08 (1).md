@@ -61,6 +61,42 @@ db.movies.aggregate([
 ])
 
 ```
+Group by példák
+1. Átlagos ár kategóriánként
+```js
+db.products.aggregate([
+  {
+    $group: {
+      _id: "$category",                  // kategória szerint csoportosít
+      avgPrice: { $avg: "$price" },      // minden kategóriára kiszámolja az átlagárat
+      totalCount: { $sum: 1 }            // megszámolja, hány termék tartozik a kategóriába
+    }
+  }
+])
+```
+
+2. Összesített érték egyetlen csoportban
+```js
+db.orders.aggregate([
+  {
+    $group: {
+      _id: null,                         // minden dokumentum egyetlen csoportba kerül
+      totalRevenue: { $sum: "$amount" } // teljes bevétel összesítése
+    }
+  }
+])
+```
+3. Egyedi értékek listája
+```js
+db.students.aggregate([
+  {
+    $group: {
+      _id: "$class",
+      uniqueSubjects: { $addToSet: "$subject" }
+    }
+  }
+])
+```
 
 1.	Lépjen be a MongoPlayground oldalára, majd a melléklet 1. pontjában szereplő gyűjteményt másolja be a Configuration részbe!
 a Készítsen lekérdezést, amely csak az user_id, firstName és lastname oszlopokat jeleníti meg!
