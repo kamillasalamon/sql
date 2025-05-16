@@ -1,0 +1,18 @@
+Az adatbázis leírása:
+Ez az adatbázis egy autósiskola működését modellezi, és lehetővé teszi a tanulók, oktatók, tanfolyamok, vizsgák és a járművek nyilvántartását. A cél egy átlátható, relációs szerkezetű adatmodell kialakítása, amely megfelel a 3. normálformának (3NF), és alkalmas különféle lekérdezésekre.
+
+A táblák:
+tanulo – az autósiskola tanulóit tartalmazza (név, születési dátum, cím, telefonszám)
+oktatok – az oktatók adatait tartalmazza (név, elérhetőség)
+jarmu – a képzésekhez használt járművek, amelyeket oktatókhoz rendelünk (rendszám, márka, típus)
+tanfolyam – tanulók és oktatók közötti képzési események (kategória, kezdési dátum)
+vizsga – egy tanfolyamhoz tartozó vizsgák (elméleti/gyakorlati típus, dátum, sikeresség)
+
+Kapcsolatok:
+Egy tanuló több tanfolyamon is részt vehet
+Egy oktató több tanfolyamot is vezethet
+Egy tanfolyamhoz több vizsga is tartozhat
+Egy oktatóhoz több jármű is kapcsolódhat
+
+
+Csoport tagjai: Balajthi Boglárka, Salamon Kamilla Ágnes, Villarroel Hektor Salvador
